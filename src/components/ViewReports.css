@@ -1,0 +1,343 @@
+/* General container styling - (keep existing) */
+.view-reports-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+  }
+  
+  /* Header Section - (keep existing) */
+  .reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 35px; /* Adjust as needed */
+    margin-right: 15px;
+  }
+  
+  .reports-header h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 0;
+  }
+  
+  .back-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Filter Section - MODIFIED */
+  .filter-section {
+    display: flex;
+    flex-direction: column; /* Stack filters vertically */
+    gap: 15px; /* Space between filter groups */
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .date-filters-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+  
+  .date-presets {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 8px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevent buttons from breaking words */
+  }
+  
+  .filter-btn:hover {
+    background-color: #dee2e6;
+  }
+  
+  .filter-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .current-date-display {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+    white-space: nowrap;
+  }
+  
+  .custom-date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px; /* Space from presets */
+    flex-wrap: wrap;
+  }
+  
+  .custom-date-inputs label {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .custom-date-inputs input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 0.9em;
+    outline: none;
+  }
+  
+  /* New: Additional Filters Section */
+  .additional-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allows filters to wrap to next line */
+    gap: 20px; /* Space between filter groups */
+    align-items: flex-end; /* Align inputs/selects at the bottom */
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-group label {
+    font-size: 0.85em;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  
+  .filter-group select,
+  .filter-group input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 0.9em;
+    outline: none;
+    min-width: 150px; /* Ensure some minimum width */
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 8px 0; /* Align with select/input padding */
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal; /* Override filter-group label */
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 3px;
+    accent-color: #007bff; /* Custom color for radio button */
+  }
+  
+  .search-bar { /* MODIFIED: now part of additional-filters */
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 38px; /* Match height of select/input */
+  }
+  
+  .search-bar input {
+    border: none;
+    padding: 8px 10px;
+    font-size: 0.9em;
+    outline: none;
+    width: 180px; /* Adjust width as needed */
+  }
+  
+  .search-icon-btn {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #6c757d;
+  }
+  .search-icon-btn:hover {
+    color: #333;
+  }
+  
+  
+  .request-csv-btn { /* (keep existing) */
+    background-color: #28a745;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align with the top of the filter section if it's vertically stacked */
+  }
+  
+  .request-csv-btn:hover {
+    background-color: #218838;
+  }
+  
+  .csv-icon {
+    font-size: 1.1em;
+  }
+  
+  /* Reports Table Container - (keep existing) */
+  .reports-table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  
+  .reports-table th,
+  .reports-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .reports-table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .reports-table tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .review-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .review-btn:hover {
+    color: #0056b3;
+  }
+  
+  /* Loading, Error, No Data Messages - (keep existing) */
+  p {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #6c757d;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  
+  .no-data-message {
+    color: #6c757d;
+  }
+  
+  /* Pagination - (keep existing) */
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .pagination button {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 8px 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+  }
+  
+  .pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:not(:disabled):hover {
+    background-color: #e2e6ea;
+  }
+  
+  .pagination span {
+    font-size: 0.95em;
+    color: #333;
+  }
+  
+  .rows-per-page-selector label {
+    margin-right: 5px;
+    color: #555;
+    font-size: 0.9em;
+  }
+  
+  .rows-per-page-selector select {
+    padding: 6px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9em;
+    outline: none;
+  }
