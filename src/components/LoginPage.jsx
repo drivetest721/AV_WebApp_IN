@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, Link } from 'react-router-dom';
 import Dashboard from '../components/Dashboard'
 
+const bCallAPI = false; // Set to true when you want to use real API
+
 // SVG Logo (Placeholder - replace with your actual SVG or image path)
 const AccuVelocityLogo = () => (
   <svg width="7424" height="40" viewBox="0 0 7424 1070" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +60,19 @@ const LoginPage = ({ onLogin }) => {
     }
 
     try {
-      // This is where you would put your actual API call
+      let data;
+      if (!bCallAPI) {
+        // Use static data
+        data = {
+          jwt_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoibWFpbEBhYmhpbmF2aW5mcmFidWlsZC5jb20iLCJyb2xlIjoiR2VuZXJhbCIsIm5hbWUiOiJBYmhpbmF2IEluZnJhYnVpbGQiLCJleHAiOjE3NTE0NjcxODh9.U5rBdAGjIfbDF8P8PFtp9oZVqUIVq7cB_Ke7oG9ig5E",
+          role: "General",
+          uid: 11,
+          email: "mail@abhinavinfrabuild.com",
+          name: "Abhinav Infrabuild",
+          created_at: "2025-04-03T21:29:48"
+        };
+      } else {
+        // Real API call
       const serverUrl = import.meta.env.VITE_SERVER_IP_PORT || 'http://192.168.1.13:8034/api';
       const response = await fetch(`${serverUrl}/login`, {
         method: 'POST',
@@ -70,22 +84,25 @@ const LoginPage = ({ onLogin }) => {
           password: formData.password
         })
       });
-      const data = await response.json();
-      if (response.ok) {
-        // Store JWT token in localStorage
-        localStorage.setItem('jwt_token', data.jwt_token);
-        localStorage.setItem('user_data', JSON.stringify({
-          uid: data.uid,
-          email: data.email,
-          name: data.name,
-          role: data.role,
-          created_at: data.created_at
-        }));
-        if (onLogin) onLogin(data); // Call the onLogin callback with user data
-      } else {
+      data = await response.json();
+
+      if (!response.ok) {
         setError(data.message || 'Login failed. Please check your credentials.');
+        return;
       }
-      console.log("Login successful:", data); // For debugging
+    }
+
+    // Store JWT and user data
+    localStorage.setItem('jwt_token', data.jwt_token);
+    localStorage.setItem('user_data', JSON.stringify({
+      uid: data.uid,
+      email: data.email,
+      name: data.name,
+      role: data.role,
+      created_at: data.created_at
+    }));
+    if (onLogin) onLogin(data);
+    console.log("Login successful:", data);
 
     } catch (err) {
       // Handle errors from the API call or other issues
@@ -120,7 +137,7 @@ const LoginPage = ({ onLogin }) => {
         };
     }
   }, []);
-  
+
   return (
     // Main container for the login page, centered with a gradient background
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-700 flex flex-col justify-center items-center p-4 font-sans">
