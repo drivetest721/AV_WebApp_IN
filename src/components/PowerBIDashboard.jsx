@@ -20,11 +20,11 @@ const PowerBIDashboard = ({ onBack }) => {
 
       <main className="powerbi-main">
         <div className="dashboard-wrapper">
-          <iframe
-            title="POWERBI-V2"
+        <iframe
+            title="AVDashboard_V2"
             width="100%"
             height="100%"
-            src="https://app.powerbi.com/reportEmbed?reportId=02c8932d-12ab-41a9-a76b-50bdde2f0963&autoAuth=true&ctid=aa0b3340-f8f9-4cd3-910f-f15bb43eeb6a"
+            src="https://app.powerbi.com/reportEmbed?reportId=7413c872-9832-46aa-bd2b-6d6df4d67011&autoAuth=true&ctid=aa0b3340-f8f9-4cd3-910f-f15bb43eeb6a"
             frameBorder="0"
             allowFullScreen="true"
             className="powerbi-iframe"
