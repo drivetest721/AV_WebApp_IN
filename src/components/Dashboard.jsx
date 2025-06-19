@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import PowerBIDashboard from './PowerBIDashboard'
+// import ViewReports from './ViewReports'
+import CompanyLogo from '../assets/CompanyLogo.svg'
 import './Dashboard.css'
-import ViewReports from './fetchReport.jsx'
-import logo from '../assets/logo.svg'
 
 
 
@@ -30,16 +30,21 @@ const Dashboard = ({ user, onLogout }) => {
     return <PowerBIDashboard onBack={() => setShowPowerBI(false)} />
   }
 
-  if (showReports) {
-    return <ViewReports onBack={() => setShowReports(false)} />
-  }
+  // if (showReports) {
+  //   return <ViewReports onBack={() => setShowReports(false)} />
+  // }
+
+  // if (showReports) {
+  //   return <ViewReports onBack={() => setShowReports(false)} />
+  // }
 
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div className="header-left">
           <div className="logo">
-            <img src={logo} alt="AccuVelocity Logo" className="logo-image" />
+            <img src={CompanyLogo} alt="AccuVelocity Logo" className="logo-image" />
+            <span className="logo-text">AccuVelocity</span>
           </div>
         </div>
         <div className="header-right">
@@ -80,17 +85,23 @@ const Dashboard = ({ user, onLogout }) => {
           <div className="actions-section">
             <h2>Quick Actions</h2>
             <div className="action-buttons">
-              <button 
+              <button
                 onClick={() => setShowPowerBI(true)}
                 className="action-btn primary"
               >
                 📊 View Dashboard
               </button>
-              {/* <button 
+              {/* <button
                 onClick={() => setShowReports(true)}
                 className="action-btn secondary"
               >
                 📈 View Reports
+              </button>
+              <button className="action-btn secondary">
+                📄 Upload Documents
+              </button>
+              <button className="action-btn secondary">
+                ⚙️ Settings
               </button> */}
             </div>
           </div>

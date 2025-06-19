@@ -1,5 +1,5 @@
+import CompanyLogo from '../assets/CompanyLogo.svg'
 import './PowerBIDashboard.css'
-import logo from '../assets/logo.svg'
 
 const PowerBIDashboard = ({ onBack }) => {
   return (
@@ -10,7 +10,8 @@ const PowerBIDashboard = ({ onBack }) => {
             ← Back to Dashboard
           </button>
           <div className="logo">
-            <img src={logo} alt="AccuVelocity Logo" className="logo-image" />
+            <img src={CompanyLogo} alt="AccuVelocity Logo" className="logo-image" />
+            <span className="logo-text">AccuVelocity</span>
           </div>
         </div>
         <div className="header-right">
@@ -21,10 +22,10 @@ const PowerBIDashboard = ({ onBack }) => {
       <main className="powerbi-main">
         <div className="dashboard-wrapper">
         <iframe
-            title="AVDashboard_V2"
+            title="AVDashboard_V3.2"
             width="100%"
             height="100%"
-            src="https://app.powerbi.com/reportEmbed?reportId=7413c872-9832-46aa-bd2b-6d6df4d67011&autoAuth=true&ctid=aa0b3340-f8f9-4cd3-910f-f15bb43eeb6a"
+            src="https://app.powerbi.com/reportEmbed?reportId=8e45718d-172c-4261-b783-9f3b01276e4b&autoAuth=true&ctid=aa0b3340-f8f9-4cd3-910f-f15bb43eeb6a"
             frameBorder="0"
             allowFullScreen="true"
             className="powerbi-iframe"
